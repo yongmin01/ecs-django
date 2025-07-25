@@ -1,4 +1,4 @@
-name:
+name: django
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,7 +34,7 @@ jobs:
         env:
           NAME: ${{ secrets.DOCKERHUB_USERNAME }}
           REPO: djangoapiserver
-        run:
+        run: |
           docker build -t $REPO .
           docker tag $REPO:latest $NAME/$REPO:latest
           docker push $NAME/$REPO:latest
