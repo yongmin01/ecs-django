@@ -4,7 +4,9 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt ./
 
-RUN apt-get update
+RUN pip install django
+
+RUN pip install djangorestframework
 
 COPY . .
 
