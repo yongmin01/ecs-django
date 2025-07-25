@@ -1,10 +1,10 @@
-FROM --platform=linux/amd64 python:3.8-slim-buster as build
-
-RUN apt-get update
+FROM python:3.8-slim-buster as build
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./  
+COPY requirements.txt ./
+
+RUN apt-get update
 
 COPY . .
 
